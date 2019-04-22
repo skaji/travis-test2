@@ -17,7 +17,7 @@ spec:
         app: test4-app
     spec:
       containers:
-        - image: skaji/sandbox-spinnaker
+        - image: index.docker.io/skaji/sandbox-spinnaker
           name: test4-app
           ports:
             - containerPort: 8080
