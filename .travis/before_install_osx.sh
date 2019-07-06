@@ -1,3 +1,7 @@
 #!/bin/bash
 
-echo $0
+set -eux
+
+brew unlink "$(brew list)"
+brew install xz coreutils gnu-tar
+brew link --force xz coreutils gnu-tar
