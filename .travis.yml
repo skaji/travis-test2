@@ -1,4 +1,7 @@
 language: minimal
-services: docker
+addons:
+  apt:
+    packages:
+      - docker-ce
 script:
   - docker version
