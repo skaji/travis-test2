@@ -1,13 +1,4 @@
-language: generic
-matrix:
-  include:
-    - os: osx
-      env: _PERL_ARCHNAME=darwin-2level
-    - os: linux
-      env: _PERL_ARCHNAME=x86_64-linux
-      services: docker
-before_install:
-  - bash .travis/before_install_$TRAVIS_OS_NAME.sh
+language: minimal
+services: docker
 script:
-  - bash .travis/script_$TRAVIS_OS_NAME.sh
-  - echo $_PERL_ARCHNAME
+  - docker version
