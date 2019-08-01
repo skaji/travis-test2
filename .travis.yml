@@ -1,8 +1,5 @@
-language: minimal
-dist: xenial
-addons:
-  apt:
-    packages:
-      - docker-ce
-script:
-  - docker version
+language: perl
+perl:
+  - '5.18'
+before_install:
+  - cpanm -n Net::SSLeay
