@@ -1,3 +1,4 @@
+language: generic
 dist: bionic
 script:
   - perl -MIO::Socket::IP -E 'my $server = IO::Socket::IP->new(LocalHost => "::1", LocalPort => 8334, Listen => 5, ReuseAddr => 1) or die "listen NG: $!"; my $client = IO::Socket::IP->new(PeerHost => "::1", PeerPort => 8334); if ($client) { say "connect OK" } else { say "connect NG: $!" }'
