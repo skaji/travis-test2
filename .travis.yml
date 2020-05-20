@@ -1,5 +1,13 @@
-language: perl
-perl:
-  - '5.18'
+# dist: trusty
+# dist: xenial
+dist: bionic
+os: linux
 before_install:
-  - cpanm -n Net::SSLeay || cat ~/.cpanm/build.log
+    - sudo apt-get update -qq
+    - sudo apt-get --no-install-recommends install -y ack-grep cmake cmake-data cpanminus libdb5.3-dev libgd-dev libgdbm-dev libgdbm-compat-dev libperl-dev libxml2-dev lynx ninja-build perl python3-pip valgrind vim wml
+install:
+    - cpanm -nq --installdeps https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Daemon-6.07-TRIAL.tar.gz
+    - cpanm --verbose --no-interactive --reinstall --test-only https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Daemon-6.07-TRIAL.tar.gz
+perl:
+    - "5.26"
+script: true
