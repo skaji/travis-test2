@@ -7,7 +7,7 @@ install:
     - perl -V
     - cpanm --sudo -nq --installdeps https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Daemon-6.07-TRIAL.tar.gz
     - git clone https://github.com/skaji/HTTP-Daemon
-    - cd HTTP-Daemon && perl -Ilib t/chunked.t
+    - cd HTTP-Daemon && git checkout -q test && perl -Ilib t/chunked.t
 perl:
     - "5.26"
 script: true
