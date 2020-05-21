@@ -1,5 +1,9 @@
-dist: bionic
+matrix:
+  include:
+    - dist: bionic
+    - dist: xenial
+    - dist: trusty
 script:
-  - sudo /sbin/sysctl -w net.ipv6.conf.all.disable_ipv6=1
-  - sudo /sbin/sysctl -w net.ipv6.conf.default.disable_ipv6=1
-  - perl test.pl
+  - /sbin/sysctl net.ipv6.conf.all.disable_ipv6=1
+  - /sbin/sysctl net.ipv6.conf.default.disable_ipv6=1
+  - cat /etc/hosts
