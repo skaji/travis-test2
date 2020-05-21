@@ -5,22 +5,22 @@ use 5.10.1;
 use IO::Socket::IP;
 
 my $server = IO::Socket::IP->new(
-    LocalHost => '::',
-    LocalPort => 8334,
     Listen => 5,
     Proto => 'tcp',
-    ReuseAddr => 1,
-) or die "Failed to create a TCP server: $!";
+) or die "Failed to create a TCP server, $!";
 
-say "Successfully created a TCP server on [::]:8334";
+my $host = $server->sockhost;
+my $port = $server->sockport;
+
+say "Successfully created a TCP server on $host:$port";
 
 my $client = IO::Socket::IP->new(
-    PeerHost => '::1',
-    PeerPort => 8334,
+    PeerHost => $host,
+    PeerPort => $port,
 );
 
 if ($client) {
-    say "Successfully connected the server via [::1]:8334";
+    say "Successfully connected the server via $host:$port";
 } else {
-    say "Failed to connect the server via [::1]:8334: $!";
+    say "Failed to connect the server via $host:$port, $!";
 }
