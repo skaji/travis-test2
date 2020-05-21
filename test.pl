@@ -16,7 +16,7 @@ for my $case (sort keys %case) {
         LocalPort => 8445,
         Listen => 5,
         Proto => 'tcp',
-    ) or die "Failed to create a TCP server, $!";
+    );
     if (!$server) {
         say "Failed to create a TCP server, $!";
         next;
