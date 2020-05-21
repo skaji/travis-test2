@@ -1,8 +1,4 @@
-matrix:
-  include:
-    - dist: bionic
-    - dist: xenial
-    - dist: trusty
+dist: bionic
 install:
   - curl -fsSL https://git.io/cpm | perl - install --sudo -g IO::Socket::IP Socket
 script:
