@@ -3,5 +3,7 @@ matrix:
     - dist: bionic
     - dist: xenial
     - dist: trusty
+install:
+  - curl -fsSL https://git.io/cpm | perl - install -g IO::Socket::IP Socket
 script:
   - perl test.pl
